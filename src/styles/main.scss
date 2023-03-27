@@ -4,3 +4,57 @@
   max-width: $maxWidth;
   margin: 0 auto;
 }
+
+.gallery {
+  display: grid;
+  grid-template-areas: "scroller scroller scroller gallery_aside-top"
+"scroller scroller scroller gallery_aside-bottom";
+  grid-template-columns:  repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  & > * {
+    border-radius: .5em;
+  }
+
+  &_aside-top,
+  &_aside-bottom {
+    overflow: hidden;
+  }
+
+  &_aside-top {
+    grid-area: gallery_aside-top;
+    margin-bottom: 1em;
+  }
+
+  &_aside-bottom {
+    grid-area: gallery_aside-bottom;
+    margin-top: 1em;
+  }
+}
+
+.scroller {
+  position: relative;
+  overflow: hidden;
+  grid-area: scroller;
+  margin-right: 2em;
+
+  &_img {
+    width: 100%;
+    top: 0;
+    position: absolute;
+  }
+
+  &_overlay {
+
+    color: #FFFFFF;
+  }
+}
+
+.aside {
+  display: flex;
+  background: linear-gradient(270deg, #E9E9E7 32.28%, rgba(233, 233, 231, 0) 45.5%), #F4F3F1;
+
+  & > * {
+    width: 50%;
+  }
+}

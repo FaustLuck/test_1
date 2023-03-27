@@ -34,30 +34,34 @@
     list-style-type: none;
     margin-right: 2em;
 
-    &.right {
-      margin-right: 0;
-      margin-left: 2em;
-    }
+    &-title {
+      font-size: 14px;
+      font-weight: 400;
 
-    & > a {
-      color: black;
-      text-decoration: none;
-      font-weight: 500;
-
-      &.title {
-        font-size: 14px;
-        font-weight: 400;
+      &.right {
+        font-size: 16px;
+        font-weight: 500;
       }
 
       &.mail {
         color: #005DB4;
-        text-decoration: underline;
       }
+    }
+
+    &.right {
+      margin-right: 0;
+      margin-left: 2em;
+      font-weight: 500;
     }
 
     &-collapse {
       height: 1em;
       vertical-align: middle;
+    }
+
+    & > a {
+      color: black;
+      text-decoration: none;
     }
   }
 }

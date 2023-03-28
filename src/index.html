@@ -2,13 +2,14 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>СанТехПром ремонт</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <header class="header">
-  <div class="header_menu">
-    <section class="list">
+  <div class="header_menu header_menu-desktop">
+    <section class="list list-desktop">
       <nav class="list_inner">
         <a class="list_title" href="#">О компании</a>
         <a class="list_title list_title-dropdown" href="#">Продукция</a>
@@ -25,21 +26,44 @@
       </address>
     </section>
   </div>
+  <div class="header_menu-mobile">
+    <img class="logo logo-mobile" src="assets/icons/logo.svg">
+    <section class="list-mobile">
+      <address class="list_inner">
+        <a class="list_title list_title-right" href="tel:+79685463379">+7 (968) 546-33-79</a>
+        <a class="list_title list_title-right" href="tel:+79685463379">+7 (968) 546-33-79</a>
+      </address>
+    </section>
+    <button class="button button-mobile">
+      <img src="assets/icons/burger.svg">
+    </button>
+  </div>
   <section class="header_main">
     <div class="toolbar">
-      <img class="toolbar_logo" src="assets/icons/logo.svg">
-      <span class="toolbar_catalog">Каталог</span>
-      <label class="toolbar_search search">
+      <img class="logo logo-desktop" src="assets/icons/logo.svg">
+      <span class="catalog">
+        <img class="" src="assets/icons/bars.svg">
+        Каталог
+      </span>
+      <label class="search open">
+<!--        todo-->
         <input type="text" placeholder="Поиск по сайту">
         <img src="./assets/icons/glass.svg">
       </label>
-      <div class="toolbar_counters">
-        <span class="toolbar_counters-condition">0</span>
-        <div class="toolbar_counters-separator"></div>
-        <span class="toolbar_counters-favorites">0</span>
-      </div>
-      <span class="toolbar_bucket">
-        В корзине <span class="toolbar_bucket-counter">0</span> товаров
+      <span class="counter">
+           <img src="assets/icons/condition.svg">
+          0
+        </span>
+      <div class="counter-separator"></div>
+      <span class="counter">
+         <img src="assets/icons/heart.svg">
+        0
+      </span>
+      <span class="bucket">
+         <img class="" src="assets/icons/bucket.svg">
+        <span class="bucket_text">В корзине</span>
+        <span class="bucket_counter">0</span>
+        <span class="bucket_text">товаров</span>
       </span>
     </div>
   </section>
@@ -52,14 +76,21 @@
         <img src="assets/img/gallery.jpg">
         <img src="assets/img/gallery.jpg">
       </div>
-      <h1>Стальные трубчатые радиаторы</h1>
-      <span>Надежные, эффективные и долговечные</span>
-      <input class="button button-white" type="button" value="Подробнее">
+      <div class="scroller_overlay scroller_overlay-desktop">
+        <h1>Стальные трубчатые радиаторы</h1>
+        <span>Надежные, эффективные и долговечные</span>
+        <input class="button button-white" type="button" value="Подробнее">
+      </div>
       <label class="controls">
         <input class="controls_btn" name="scroller" type="radio" checked>
         <input class="controls_btn" name="scroller" type="radio">
         <input class="controls_btn" name="scroller" type="radio">
       </label>
+    </div>
+    <div class="scroller_overlay scroller_overlay-mobile">
+      <h1>Стальные трубчатые радиаторы</h1>
+      <span>Надежные, эффективные и долговечные</span>
+      <input class="button button-black" type="button" value="Подробнее">
     </div>
     <div class="aside aside-top">
       <div>
@@ -110,5 +141,10 @@
     </article>
   </section>
 </main>
+<div class="overlay open">
+</div>
+<button class="button button-mobile button-close">
+  <img src="assets/icons/cross.svg">
+</button>
 </body>
 </html>

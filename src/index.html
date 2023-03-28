@@ -26,38 +26,21 @@
     </section>
   </div>
   <section class="header_main">
-    <div class="block left">
-      <div class="logo">
-        <img class="logo_img" src="assets/icons/logo.svg">
-        <span class="logo_text">Сантехпром ремонт</span>
-      </div>
-      <div class="catalog">
-        <img class="catalog_img" src="assets/icons/bars.svg">
-        <span>Каталог</span>
-      </div>
-      <label class="search">
-        <input class="search_input" type="text" placeholder="Поиск по сайту">
-        <img class="search_btn" src="./assets/icons/glass.svg">
+    <div class="toolbar">
+      <img class="toolbar_logo" src="assets/icons/logo.svg">
+      <span class="toolbar_catalog">Каталог</span>
+      <label class="toolbar_search search">
+        <input type="text" placeholder="Поиск по сайту">
+        <img src="./assets/icons/glass.svg">
       </label>
-    </div>
-    <div class="block right">
-      <div class="counters">
-        <div class="condition">
-          <img class="condition_img" src="assets/icons/condition.svg">
-          <span class="condition_counter">0</span>
-        </div>
-        <div class="separator"></div>
-        <div class="favorites">
-          <img class="favorites_img" src="assets/icons/heart.svg">
-          <span class="favorites_counter">0</span>
-        </div>
+      <div class="toolbar_counters">
+        <span class="toolbar_counters-condition">0</span>
+        <div class="toolbar_counters-separator"></div>
+        <span class="toolbar_counters-favorites">0</span>
       </div>
-      <div class="bucket">
-        <img class="bucket_img" src="assets/icons/bucket.svg">
-        <span class="bucket_text">В корзине</span>
-        <span class="bucket_counter">0</span>
-        <span class="bucket_text">товаров</span>
-      </div>
+      <span class="toolbar_bucket">
+        В корзине <span class="toolbar_bucket-counter">0</span> товаров
+      </span>
     </div>
   </section>
 </header>

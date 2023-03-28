@@ -1,5 +1,6 @@
 @import "header";
 @import "main";
+@import "vars";
 
 * {
   margin: 0;
@@ -11,8 +12,13 @@ body {
   font-family: 'Open Sans', serif;
   font-style: normal;
   font-weight: 400;
+  min-height: 100vh;
 }
 
+main{
+  max-width: $maxWidth;
+  margin:0 auto;
+}
 
 
 

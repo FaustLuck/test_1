@@ -91,3 +91,22 @@
     }
   }
 }
+
+.store {
+  display: grid;
+  grid-template-columns:  repeat(4, 1fr);
+  grid-gap: 2em;
+  max-width: $maxWidth;
+  margin: 2em auto;
+}
+
+.card{
+  border: 1px solid #EAEAEA;
+  border-radius: .5em;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  &>*{
+    width: 50%;
+  }
+}

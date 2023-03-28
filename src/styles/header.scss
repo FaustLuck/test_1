@@ -4,188 +4,217 @@
   &_menu {
     width: 100%;
     background-color: #E8EEF1;
-
-    &-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: $maxWidth;
-      height: 4em;
-      margin: 0 auto;
-    }
   }
 
   &_main {
-    display: flex;
-    justify-content: space-between;
-    height: 4em;
     padding: 2em 0;
-    max-width: 1600px;
-    margin: 0 auto;
   }
 }
 
 .list {
+  max-width: $maxWidth;
   display: flex;
-  font-style: normal;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  height: 4em;
 
-  &_item {
-    position: relative;
-    list-style-type: none;
-    margin-right: 2em;
+  @media screen and (max-width: $maxWidth) {
+    margin: 0;
+    padding: 0 2em;
+  }
 
-    &-title {
-      font-size: 14px;
-      font-weight: 400;
+  &_inner {
+    display: inline;
+    font-style: normal;
+  }
 
-      &.right {
-        font-size: 16px;
-        font-weight: 500;
-      }
+  &_title {
+    font-size: 14px;
+    font-weight: 400;
+    color: #2B2A29;
+    text-decoration: none;
+    padding: .5em;
 
-      &.mail {
-        color: #005DB4;
-      }
-    }
-
-    &.right {
-      margin-right: 0;
-      margin-left: 2em;
-      font-weight: 500;
-    }
-
-    &-collapse {
+    &-dropdown::after {
+      content: '';
+      background-image: url("../assets/icons/chevron.svg");
+      background-size: cover;
+      position: relative;
+      display: inline-block;
       height: 1em;
+      width: 1em;
       vertical-align: middle;
     }
 
-    & > a {
-      color: black;
-      text-decoration: none;
+    @media screen and (max-width: $xxl) {
+      font-size: 13px;
+    }
+
+    @media screen and (max-width: $xl) {
+      font-size: 12px;
+      padding: .3em;
+    }
+
+    &-right {
+      font-size: 16px;
+      font-weight: 500;
+
+      @media screen and (max-width: $xxl) {
+        font-size: 13px;
+      }
+
+      @media screen and (max-width: $xl) {
+        font-size: 10px;
+      }
+    }
+
+    &-mail {
+      color: #005DB4;
     }
   }
+
+
 }
 
-.block {
+.toolbar {
   display: flex;
-
-  &.left {
-    width: 75%;
-
-    & > * {
-      margin-right: 2em;
-    }
-  }
-
-  &.right {
-    width: 25%;
-    justify-content: space-between;
-  }
-
-  & > * {
-    display: flex;
-    align-items: center;
-  }
-}
-
-.logo {
-  justify-content: center;
-  color: #FFFFFF;
-  background-color: #005DB4;
-  border-radius: .5em;
+  align-items: center;
+  max-width: $maxWidth;
+  gap: 2em;
   height: 3em;
-  padding: .5em 1em;
-  width: 12.5%;
+  margin: 0 auto;
 
-  &_img {
-    height: 100%;
-    margin-right: .5em;
+  @media screen and (max-width: $maxWidth) {
+    margin: 0;
+    padding: 0 2em;
   }
 
-  &_text {
+  &_logo {
+    display: inherit;
+    align-items: center;
+    color: #FFFFFF;
+    background-color: #005DB4;
+    border-radius: .5em;
+    height: inherit;
+    padding: .5em 1em;
     text-transform: uppercase;
   }
-}
 
-.catalog {
-  justify-content: center;
-  color: #FFFFFF;
-  background-color: #FE5603;
-  border-radius: .5em;
-  height: 3em;
-  padding: .5em 1em;
-  width: 12.5%;
+  &_catalog {
+    display: inherit;
+    color: #FFFFFF;
+    background-color: #FE5603;
+    border-radius: .5em;
+    height: inherit;
+    padding: .5em 1em;
+    align-items: center;
 
-  &_img {
-    height: 1em;
-    margin-right: 1em;
-  }
-}
-
-.search {
-  padding: 1em 1.5em;
-  border-bottom: 1px solid #EAEAEA;
-  flex-grow: 2;
-
-  &_input {
-    appearance: none;
-    border: none;
-    outline: none;
-    height: 1em;
-    width: 100%;
-  }
-
-  &_btn {
-    height: 1em;
-    cursor: pointer;
-    vertical-align: middle;
-  }
-}
-
-.counters {
-  width: 5em;
-  justify-content: space-between;
-
-  .condition {
-    & > * {
+    &::before {
+      content: '';
+      background-image: url("../assets/icons/bars.svg");
+      background-size: cover;
       height: 1em;
-      vertical-align: bottom;
-      color: #005DB4
+      width: 1em;
+      margin-right: 1em;
     }
   }
 
-  .separator {
-    height: 2em;
-    width: 1px;
-    background-color: #C4D7E8FF;
-  }
+  &_search {
+    display: inherit;
+    padding: 1em 1.5em;
+    border-bottom: 1px solid #EAEAEA;
+    flex-grow: 2;
 
-  .favorites {
-    & > * {
+    & > input {
+      appearance: none;
+      border: none;
+      outline: none;
       height: 1em;
-      vertical-align: bottom;
-      color: #005DB4
+      width: 100%;
+    }
+
+    & > img {
+      height: 1em;
+      cursor: pointer;
+      vertical-align: middle;
     }
   }
-}
 
-.bucket {
-  border-radius: .5em;
-  width: 66%;
-  height: 3em;
-  padding: 0.5em 1em;
-  justify-content: space-evenly;
-  border: 1px solid #93B8DB;
+  &_counters {
+    display: inherit;
 
-  &_text {
+    &-condition {
+      display: inherit;
+      align-items: center;
+      color: #005DB4;
+
+      &::before {
+        content: '';
+        background-image: url("../assets/icons/condition.svg");
+        background-size: cover;
+        height: 1em;
+        width: 1em;
+        margin-right: 1em;
+      }
+    }
+
+    &-separator {
+      height: 2em;
+      width: 1px;
+      background-color: #C4D7E8FF;
+      margin: 0 .5em;
+    }
+
+    &-favorites {
+      display: inherit;
+      align-items: center;
+      color: #005DB4;
+
+      &::before {
+        content: '';
+        background-image: url("../assets/icons/heart.svg");
+        background-size: cover;
+        height: 1em;
+        width: 1em;
+        margin-right: 1em;
+      }
+    }
+  }
+
+  &_bucket {
+    display: inherit;
+    border-radius: .5em;
+    height: inherit;
+    align-items: center;
+    padding: 0.5em 1em;
+    justify-content: space-evenly;
+    border: 1px solid #93B8DB;
     color: #A4A4A3;
-  }
+    font-size: 14px;
 
-  &_counter {
-    color: #2B2A29;
-  }
+    @media screen and (max-width: $maxWidth) {
+      font-size: 12px;
+    }
 
-  & > * {
-    height: 1em;
+    &::before {
+      content: '';
+      background-image: url("../assets/icons/bucket.svg");
+      background-size: cover;
+      height: 1em;
+      width: 1em;
+      margin-right: 1em;
+    }
+
+    &-counter {
+      color: #2B2A29;
+      min-width: 3ch;
+      text-align: center;
+      font-size: 16px;
+
+      @media screen and (max-width: $maxWidth) {
+        font-size: 14px;
+      }
+    }
   }
 }

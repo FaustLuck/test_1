@@ -4,10 +4,36 @@
   &_menu {
     width: 100%;
     background-color: #E8EEF1;
+
+    &-desktop {
+      @media screen and (max-width: $md) {
+        display: none;
+      }
+    }
+
+    &-mobile {
+      display: none;
+      padding: 2em 2em 0;
+      @media screen and (max-width: $md) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      @media screen and (max-width: $sm) {
+        padding: 1em 1em 0;
+      }
+    }
+
   }
 
   &_main {
     padding: 2em 0;
+    height: 4em;
+    @media screen and (max-width: $md) {
+      height: 3em;
+    }
+
   }
 }
 
@@ -19,14 +45,36 @@
   margin: 0 auto;
   height: 4em;
 
+  &-desktop{
+    @media screen and (max-width: $md) {
+      display: none;
+    }
+  }
+
+  &-mobile{
+    @media screen and (max-width: $md) {
+      display: flex;
+    }
+  }
+
   @media screen and (max-width: $maxWidth) {
     margin: 0;
     padding: 0 2em;
   }
 
+  @media screen and (max-width: $lg) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   &_inner {
     display: inline;
     font-style: normal;
+
+    @media screen and (max-width: $md) {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &_title {
@@ -56,6 +104,10 @@
       padding: .3em;
     }
 
+    @media screen and (max-width: $md) {
+      font-size: 14px;
+    }
+
     &-right {
       font-size: 16px;
       font-weight: 500;
@@ -67,22 +119,29 @@
       @media screen and (max-width: $xl) {
         font-size: 10px;
       }
+
+      @media screen and (max-width: $md) {
+        font-size: 14px;
+      }
+
+      @media screen and (max-width: $sm) {
+        font-size: 10px;
+      }
     }
 
     &-mail {
       color: #005DB4;
     }
   }
-
-
 }
 
 .toolbar {
   display: flex;
+  position: relative;
   align-items: center;
   max-width: $maxWidth;
   gap: 2em;
-  height: 3em;
+  height: 100%;
   margin: 0 auto;
 
   @media screen and (max-width: $maxWidth) {
@@ -90,131 +149,210 @@
     padding: 0 2em;
   }
 
-  &_logo {
-    display: inherit;
-    align-items: center;
-    color: #FFFFFF;
-    background-color: #005DB4;
-    border-radius: .5em;
-    height: inherit;
-    padding: .5em 1em;
-    text-transform: uppercase;
+  @media screen and (max-width: $sm) {
+    justify-content: space-between;
+    padding: 0 1em;
+    gap: 0;
   }
+}
 
-  &_catalog {
-    display: inherit;
-    color: #FFFFFF;
-    background-color: #FE5603;
-    border-radius: .5em;
-    height: inherit;
-    padding: .5em 1em;
-    align-items: center;
+.logo {
+  display: inherit;
+  align-items: center;
+  color: #FFFFFF;
+  background-color: #005DB4;
+  border-radius: .5em;
+  height: inherit;
+  padding: .5em 1em;
+  text-transform: uppercase;
 
-    &::before {
-      content: '';
-      background-image: url("../assets/icons/bars.svg");
-      background-size: cover;
-      height: 1em;
-      width: 1em;
-      margin-right: 1em;
+  &-desktop {
+    @media screen and (max-width: $md) {
+      display: none;
     }
   }
 
-  &_search {
-    display: inherit;
-    padding: 1em 1.5em;
-    border-bottom: 1px solid #EAEAEA;
-    flex-grow: 2;
-
-    & > input {
-      appearance: none;
-      border: none;
-      outline: none;
-      height: 1em;
-      width: 100%;
-    }
-
-    & > img {
-      height: 1em;
-      cursor: pointer;
-      vertical-align: middle;
-    }
-  }
-
-  &_counters {
-    display: inherit;
-
-    &-condition {
+  &-mobile {
+    display: none;
+    @media screen and (max-width: $md) {
       display: inherit;
-      align-items: center;
-      color: #005DB4;
-
-      &::before {
-        content: '';
-        background-image: url("../assets/icons/condition.svg");
-        background-size: cover;
-        height: 1em;
-        width: 1em;
-        margin-right: 1em;
-      }
     }
 
-    &-separator {
-      height: 2em;
-      width: 1px;
-      background-color: #C4D7E8FF;
-      margin: 0 .5em;
+    @media screen and (max-width: $sm) {
+      padding: 0 0.5em;
     }
+  }
+}
 
-    &-favorites {
-      display: inherit;
-      align-items: center;
-      color: #005DB4;
+.catalog {
+  display: inherit;
+  color: #FFFFFF;
+  background-color: #FE5603;
+  border-radius: .5em;
+  height: inherit;
+  padding: .5em 1em;
+  align-items: center;
 
-      &::before {
-        content: '';
-        background-image: url("../assets/icons/heart.svg");
-        background-size: cover;
-        height: 1em;
-        width: 1em;
-        margin-right: 1em;
-      }
+  & > img {
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 1em;
+
+    @media screen and (max-width: $md) {
+      margin: 0;
     }
   }
 
-  &_bucket {
-    display: inherit;
+  @media screen and (max-width: $md) {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: $sm) {
+    padding: .5em;
+  }
+}
+
+.search {
+  display: inherit;
+  border-bottom: 1px solid #EAEAEA;
+  flex-grow: 2;
+  height: inherit;
+  align-items: center;
+  padding: 0.5em 1em;
+  justify-content: center;
+
+  @media screen and (max-width: $sm) {
+    flex-grow: 0;
+    border: 1px solid #EAEAEA;
     border-radius: .5em;
-    height: inherit;
-    align-items: center;
+    padding: 0.5em 1.5em;
+  }
+
+  @media screen and (max-width: $sm) {
     padding: 0.5em 1em;
-    justify-content: space-evenly;
-    border: 1px solid #93B8DB;
+  }
+
+  & > input {
+    appearance: none;
+    border: none;
+    outline: none;
+    height: 1em;
+    width: 100%;
+    @media screen and (max-width: $sm) {
+      display: none;
+      &::placeholder {
+        color: transparent;
+      }
+    }
+  }
+
+  & > img {
+    height: 1.5em;
+    cursor: pointer;
+    vertical-align: middle;
+  }
+
+  &.open{
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    margin: 0 1em;
+    z-index: 10;
+    & > input{
+      display: block;
+    }
+
+  }
+}
+
+.counter {
+  display: inherit;
+  align-items: center;
+  color: #005DB4;
+  height: inherit;
+
+  @media screen and (max-width: $md) {
+    padding: 0.5em 1em;
+    border: 1px solid #E8EEF1;
+    border-radius: .5em;
+  }
+
+  @media screen and (max-width: $sm) {
+    padding: 0.5em;
+  }
+
+  &-separator {
+    height: 2em;
+    width: 1px;
+    background-color: #C4D7E8FF;
+    margin: 0 .5em;
+
+    @media screen and (max-width: $md) {
+      display: none;
+    }
+  }
+
+  & > img {
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 1em;
+
+    @media screen and (max-width: $lg) {
+      margin-right: .5em;
+    }
+  }
+}
+
+.bucket {
+  display: inherit;
+  border-radius: .5em;
+  height: inherit;
+  align-items: center;
+  padding: 0.5em 1em;
+  justify-content: space-evenly;
+  border: 1px solid #93B8DB;
+
+  @media screen and (max-width: $md) {
+    border: 1px solid #E8EEF1;
+  }
+
+  @media screen and (max-width: $sm) {
+    padding: 0.5em;
+  }
+
+  &_text {
     color: #A4A4A3;
     font-size: 14px;
+    white-space: nowrap;
 
     @media screen and (max-width: $maxWidth) {
       font-size: 12px;
     }
 
-    &::before {
-      content: '';
-      background-image: url("../assets/icons/bucket.svg");
-      background-size: cover;
-      height: 1em;
-      width: 1em;
-      margin-right: 1em;
+    @media screen and (max-width: $lg) {
+      display: none;
     }
+  }
 
-    &-counter {
-      color: #2B2A29;
-      min-width: 3ch;
-      text-align: center;
-      font-size: 16px;
+  & > img {
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 1em;
+    @media screen and (max-width: $md) {
+      margin-right: 0;
+    }
+  }
 
-      @media screen and (max-width: $maxWidth) {
-        font-size: 14px;
-      }
+  &_counter {
+    color: #2B2A29;
+    min-width: 3ch;
+    text-align: center;
+    font-size: 16px;
+
+    @media screen and (max-width: $maxWidth) {
+      font-size: 14px;
     }
   }
 }

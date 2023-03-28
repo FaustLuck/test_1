@@ -1,16 +1,14 @@
 @import "vars";
 
-.main {
-  max-width: $maxWidth;
-  margin: 0 auto;
-}
-
 .gallery {
   display: grid;
   grid-template-areas: "scroller scroller scroller gallery_aside-top"
 "scroller scroller scroller gallery_aside-bottom";
   grid-template-columns:  repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  grid-gap: 2em;
+  max-height: 40vh;
+  margin: 0 auto;
 
   & > * {
     border-radius: .5em;
@@ -19,16 +17,24 @@
   &_aside-top,
   &_aside-bottom {
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 1.5em;
+
+    & > * {
+      width: 50%;
+    }
   }
 
   &_aside-top {
     grid-area: gallery_aside-top;
-    margin-bottom: 1em;
+    background: linear-gradient(90deg, #EEEEEE 42.06%, rgba(238, 238, 238, 0) 60.05%), url('../assets/img/news.png') 50% 50%;
+    background-size: cover;
   }
 
   &_aside-bottom {
     grid-area: gallery_aside-bottom;
-    margin-top: 1em;
+    background: linear-gradient(270deg, #E9E9E7 32.28%, rgba(233, 233, 231, 0) 45.5%), #F4F3F1;
   }
 }
 
@@ -36,25 +42,52 @@
   position: relative;
   overflow: hidden;
   grid-area: scroller;
-  margin-right: 2em;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.56) 17.36%, rgba(0, 0, 0, 0) 52.43%), url('../assets/img/gallery.jpg') 50% 50% no-repeat, #EAEAE8;
+  background-size: cover;
+  padding: 2em;
 
-  &_img {
-    width: 100%;
-    top: 0;
-    position: absolute;
+  & > * {
+    width: 40%;
+    color: #ffffff;
   }
 
-  &_overlay {
+  & > h1 {
+    margin: 2em 0;
+  }
 
-    color: #FFFFFF;
+  &_btn {
+    padding: 1em 2em;
+    background-color: transparent;
+    border-radius: 0.5em;
+    appearance: none;
+    border: 2px solid #EAEAEA;
+    bottom: 2em;
+    color: #ffffff;
+    font-weight: 600;
+    position: absolute;
+    left: 2em;
+    width: auto;
   }
 }
 
-.aside {
+.controls {
+  position: absolute;
   display: flex;
-  background: linear-gradient(270deg, #E9E9E7 32.28%, rgba(233, 233, 231, 0) 45.5%), #F4F3F1;
+  justify-content: space-between;
+  bottom: 1em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10%;
 
-  & > * {
-    width: 50%;
+  &_btn {
+    appearance: none;
+    width: .5em;
+    height: .5em;
+    background-color: #E8EEF1;
+    border-radius: 50%;
+
+    &:checked {
+      background-color: #005DB4;
+    }
   }
 }

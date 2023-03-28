@@ -13,7 +13,7 @@
     "> 1%",
     "IE 10"
   ],
-  "dependencies": {
+  "devDependencies": {
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
     "babel-loader": "^9.1.2",

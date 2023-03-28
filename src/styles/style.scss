@@ -13,11 +13,20 @@ body {
   font-style: normal;
   font-weight: 400;
   min-height: 100vh;
+
+  @media screen and (max-width: $xxl) {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: $xl) {
+    font-size: 12px;
+  }
+
 }
 
-main{
+main {
   max-width: $maxWidth;
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 

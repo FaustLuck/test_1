@@ -196,24 +196,33 @@
   bottom: 0;
   padding: 2em 0;
   z-index: 10;
-  transition: transform .5s linear;
+  left: -100%;
+  transition: left .5s linear;
 
-  &-catalog{
+  &-dropdown {
+    position: absolute;
+    left: 0;
+    height: min-content;
+    width: min-content;
+    border-radius: .5em;
+  }
+
+  &-catalog {
     display: none;
-    top:25%;
+    top: 25%;
     height: min-content;
     left: 1em;
     right: 1em;
     width: auto;
     border-radius: .5em;
 
-    &.open{
+    &.open {
       display: block;
     }
   }
 
-  &.hide {
-    transform: translateX(-100%);
+  &.open {
+    left: 0;
   }
 }
 

@@ -26,18 +26,6 @@ export default {
   },
   ...(!isProd && {devtool: "source-map"}),
   mode,
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          name: "vendor",
-          test: /node_modules/,
-          chunks: "all",
-          enforce: true
-        }
-      }
-    }
-  },
   target: (isProd) ? "browserslist" : "web",
   module: {
     rules: [
@@ -69,18 +57,22 @@ export default {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/inline"
+        type: "asset/resource"
       },
       {
         test: /\.html$/i,
-        loader: "html-loader"
+        loader: "html-loader",
+        options: {
+          minimize: false,
+        },
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
-      scriptLoading: "module"
+      scriptLoading: "module",
+      minify: false
     }),
     new MiniCssExtractPlugin({
       filename: "style.[contenthash].css",

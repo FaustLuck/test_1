@@ -49,26 +49,20 @@ function closeCatalog() {
 
 function openMenu() {
   if (!window.matchMedia("(max-width: 576px)").matches) return;
-  toggleOverlay([menuButton]);
+  toggleOverlay([menuButton, menu]);
   const {left, top} = menuButton.getBoundingClientRect();
   closeButton.style.left = left + "px";
   closeButton.style.top = top + "px";
-  menu.classList.remove("hide");
   menuButton.removeEventListener("pointerdown", openMenu);
   closeButton.addEventListener("pointerdown", closeMenu);
 }
 
 function closeMenu() {
-  toggleOverlay([menuButton]);
-  menu.classList.add("hide");
+  toggleOverlay([menuButton, menu]);
   closeButton.style = "";
   menuButton.addEventListener("pointerdown", openMenu);
   closeButton.removeEventListener("pointerdown", closeMenu);
 }
-
-searchButton.addEventListener("pointerdown", openSearch);
-catalogButton.addEventListener("pointerdown", openCatalog);
-menuButton.addEventListener("pointerdown", openMenu);
 
 function toggleOverlay(targets) {
   const overlay = document.querySelector(".overlay");
@@ -93,3 +87,9 @@ function removePlug() {
   const plug = document.querySelector(".plug-js");
   plug.remove();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  searchButton.addEventListener("pointerdown", openSearch);
+  catalogButton.addEventListener("pointerdown", openCatalog);
+  menuButton.addEventListener("pointerdown", openMenu);
+});

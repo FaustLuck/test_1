@@ -76,7 +76,10 @@
       display: flex;
       flex-direction: column;
       font-style: normal;
-      margin-bottom: 2em;
+
+      & + .list_inner {
+        margin-top: 2em;
+      }
     }
 
     &_title {
@@ -201,15 +204,25 @@
 
   &-dropdown {
     position: absolute;
-    left: 0;
+    top: 5em;
     height: min-content;
-    width: min-content;
+    width: 15em;
     border-radius: .5em;
+    display: none;
+    border: 1px solid #2B2A29;
+    transition: none;
+
+    &.show {
+      display: block;
+    }
   }
 
   &-catalog {
+    position: fixed;
+    background-color: #fff;
+    z-index: 10;
+    padding: 2em 0;
     display: none;
-    top: 25%;
     height: min-content;
     left: 1em;
     right: 1em;

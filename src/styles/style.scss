@@ -15,7 +15,7 @@ body {
   min-height: 100vh;
 
   &.open{
-    overflow: hidden;
+    position: relative;
   }
 
   @media screen and (max-width: $xxl) {

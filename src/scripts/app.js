@@ -3,6 +3,8 @@ const catalogButton = document.querySelector(".catalog-button-js");
 const catalogMenu = document.querySelector(".menu-catalog-js");
 const menuButton = document.querySelector(".button_menu-js");
 const menu = document.querySelector(".sidebar-js");
+const dropdownTitle = document.querySelector(".list_title-dropdown-js");
+const dropdownContent = document.querySelector(".menu-dropdown-js");
 const closeButton = document.querySelector(".button-close-js");
 
 
@@ -66,6 +68,19 @@ function closeMenu() {
   closeButton.style = "";
   menuButton.addEventListener("pointerdown", openMenu);
   closeButton.removeEventListener("pointerdown", closeMenu);
+}
+
+function showDropdownCatalog() {
+  const {left, bottom} = dropdownTitle.getBoundingClientRect();
+  dropdownContent.style.left = left + "px";
+  dropdownContent.style.top = bottom + 30 + "px";
+  dropdownContent.classList.add("show");
+  dropdownContent.addEventListener("pointerleave", hideDropdownCatalog);
+}
+
+function hideDropdownCatalog() {
+  dropdownContent.style = "";
+  dropdownContent.classList.remove("show");
 }
 
 function toggleOverlay(targets) {

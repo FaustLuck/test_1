@@ -45,6 +45,7 @@ function closeCatalog() {
   toggleOverlay([catalogButton, catalogMenu]);
   removePlug();
   closeButton.style = "";
+  catalogMenu.style = "";
   catalogButton.addEventListener("pointerdown", openCatalog);
   catalogButton.removeEventListener("pointerdown", closeCatalog);
   closeButton.removeEventListener("pointerdown", closeCatalog);

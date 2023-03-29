@@ -1,5 +1,5 @@
 const searchButton = document.querySelector(".search-js");
-const catalogButton = document.querySelector(".catalog-js");
+const catalogButton = document.querySelector(".catalog-button-js");
 const catalogMenu = document.querySelector(".menu-catalog-js");
 const menuButton = document.querySelector(".button_menu-js");
 const menu = document.querySelector(".sidebar-js");

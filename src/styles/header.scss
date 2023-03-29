@@ -45,13 +45,13 @@
   margin: 0 auto;
   height: 4em;
 
-  &-desktop{
+  &-desktop {
     @media screen and (max-width: $md) {
       display: none;
     }
   }
 
-  &-mobile{
+  &-mobile {
     @media screen and (max-width: $md) {
       display: flex;
     }
@@ -67,9 +67,19 @@
     justify-content: center;
   }
 
+  &-sidebar {
+    display: block;
+    height: auto;
+    padding: 0 0 0 2em;
+  }
+
   &_inner {
     display: inline;
     font-style: normal;
+
+    &-sidebar{
+      margin-bottom: 2em;
+    }
 
     @media screen and (max-width: $md) {
       display: flex;
@@ -84,15 +94,32 @@
     text-decoration: none;
     padding: .5em;
 
-    &-dropdown::after {
-      content: '';
-      background-image: url("../assets/icons/chevron.svg");
-      background-size: cover;
-      position: relative;
-      display: inline-block;
-      height: 1em;
-      width: 1em;
-      vertical-align: middle;
+    &-dropdown{
+      &::after {
+        content: '';
+        background-image: url("../assets/icons/chevron.svg");
+        background-size: cover;
+        position: relative;
+        display: inline-block;
+        height: 1em;
+        width: 1em;
+        vertical-align: middle;
+      }
+
+      &-sidebar::after{
+        content: '';
+        background-image: url("../assets/icons/chevron.svg");
+
+        background-size: cover;
+        position: absolute;
+        display: inline-block;
+        height: 1em;
+        width: 1em;
+        right: 0;
+        top: 50%;
+        vertical-align: middle;
+        transform: translateY(-50%) rotate(-90deg);
+      }
     }
 
     @media screen and (max-width: $xxl) {
@@ -132,6 +159,36 @@
     &-mail {
       color: #005DB4;
     }
+
+    &-sidebar{
+      font-size: 16px;
+      width: auto;
+      position: relative;
+      padding: 0.5em 0;
+      &:not(:first-child){
+        border-top: 1px solid #E7E7E7;
+      }
+
+      &-address{
+        font-weight: 500;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  background-color: #fff;
+  width: 80%;
+  top: 0;
+  bottom: 0;
+  padding: 2em 0;
+  z-index: 10;
+  transition: transform .5s linear;
+
+  &.hide {
+    transform: translateX(-100%);
   }
 }
 
@@ -189,10 +246,15 @@
   color: #FFFFFF;
   background-color: #FE5603;
   border-radius: .5em;
+  border: 1px solid #FE5603;
   height: inherit;
   padding: .5em 1em;
   align-items: center;
   cursor: pointer;
+
+  &.open {
+    z-index: 10;
+  }
 
   & > img {
     height: 1.5em;
@@ -254,14 +316,15 @@
     vertical-align: middle;
   }
 
-  &.open{
+  &.open {
     position: absolute;
     left: 0;
     right: 0;
     background-color: #fff;
     margin: 0 1em;
     z-index: 10;
-    & > input{
+
+    & > input {
       display: block;
     }
 

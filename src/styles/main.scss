@@ -47,14 +47,17 @@
 
   &_wrapper {
     position: relative;
-    display: flex;
-    transition: transform 1s linear;
 
-    & > img {
-      width: 100%;
-      height: auto;
-      min-width: 100%;
-      object-fit: cover;
+    &-scroll{
+      height: 100%;
+      display: flex;
+
+      & > img {
+        width: 100%;
+        height: auto;
+        min-width: 100%;
+        object-fit: cover;
+      }
     }
 
     &::after {
@@ -148,10 +151,14 @@
 
   &_btn {
     appearance: none;
-    width: .5em;
-    height: .5em;
+    width: 1.5em;
+    height: 1.5em;
     background-color: #E8EEF1;
     border-radius: 50%;
+
+    @media  screen and (max-width: $md){
+      display: none;
+    }
 
     &:checked {
       background-color: #005DB4;

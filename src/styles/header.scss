@@ -198,6 +198,20 @@
   z-index: 10;
   transition: transform .5s linear;
 
+  &-catalog{
+    display: none;
+    top:25%;
+    height: min-content;
+    left: 1em;
+    right: 1em;
+    width: auto;
+    border-radius: .5em;
+
+    &.open{
+      display: block;
+    }
+  }
+
   &.hide {
     transform: translateX(-100%);
   }

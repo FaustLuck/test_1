@@ -6,7 +6,8 @@ const menu = document.querySelector(".sidebar-js");
 const dropdownTitle = document.querySelector(".list_title-dropdown-js");
 const dropdownContent = document.querySelector(".menu-dropdown-js");
 const closeButton = document.querySelector(".button-close-js");
-
+const controlsScroller = document.querySelectorAll(".control-scroller-js");
+const wrapperScroller = document.querySelector(".scroller_wrapper-scroll-js");
 
 function openSearch() {
   if (!window.matchMedia("(max-width: 576px)").matches) return;
@@ -107,8 +108,33 @@ function removePlug() {
   plug.remove();
 }
 
+function scrolling(target) {
+  const index = Array.from(controlsScroller).indexOf(target);
+  wrapperScroller.style.transform = `translateX(${-100 * (index)}%)`;
+  setTimeout(() => wrapperScroller.style.transition = `transform 1s linear`, 1);
+}
+
+function autoScrolling() {
+  const index = Array.from(controlsScroller).findIndex(el => el.checked);
+  controlsScroller[index].checked = false;
+  let newIndex;
+  if (index + 1 < controlsScroller.length) {
+    newIndex = index + 1;
+  } else {
+    newIndex = 0;
+    wrapperScroller.style.transition = "";
+  }
+  controlsScroller[newIndex].checked = true;
+  scrolling(controlsScroller[newIndex]);
+}
+
+setInterval(autoScrolling, 5000);
+
 document.addEventListener("DOMContentLoaded", () => {
   searchButton.addEventListener("pointerdown", openSearch);
   catalogButton.addEventListener("pointerdown", openCatalog);
   menuButton.addEventListener("pointerdown", openMenu);
+  dropdownTitle.addEventListener("pointerdown", showDropdownCatalog);
+  controlsScroller[0].parentNode.addEventListener("pointerdown", (e) => scrolling(e.target));
+  wrapperScroller.style.transition = `transform 1s linear`;
 });

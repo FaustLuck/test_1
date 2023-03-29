@@ -27,7 +27,7 @@ function closeSearch() {
 }
 
 function openCatalog() {
-  if (!window.matchMedia("(max-width: 576px)").matches) return;
+  if (!window.matchMedia("(max-width: 768px)").matches) return;
   insertPlug(catalogButton);
   toggleOverlay([catalogButton, catalogMenu]);
   const {left, top} = menuButton.getBoundingClientRect();
@@ -48,7 +48,7 @@ function closeCatalog() {
 }
 
 function openMenu() {
-  if (!window.matchMedia("(max-width: 576px)").matches) return;
+  if (!window.matchMedia("(max-width: 768px)").matches) return;
   toggleOverlay([menuButton, menu]);
   const {left, top} = menuButton.getBoundingClientRect();
   closeButton.style.left = left + "px";

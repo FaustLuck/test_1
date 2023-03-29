@@ -44,6 +44,7 @@
   align-items: center;
   margin: 0 auto;
   height: 4em;
+  flex-wrap: wrap;
 
   &-desktop {
     @media screen and (max-width: $md) {
@@ -63,23 +64,63 @@
   }
 
   @media screen and (max-width: $lg) {
-    flex-wrap: wrap;
     justify-content: center;
   }
 
   &-sidebar {
     display: block;
     height: auto;
-    padding: 0 0 0 2em;
+    padding: 0 2em;
+
+    &_inner {
+      display: flex;
+      flex-direction: column;
+      font-style: normal;
+      margin-bottom: 2em;
+    }
+
+    &_title {
+      font-size: 16px;
+      width: auto;
+      position: relative;
+      font-weight: 400;
+      color: #2B2A29;
+      text-decoration: none;
+      padding: .5em;
+
+      &:not(:first-child) {
+        border-top: 1px solid #E7E7E7;
+      }
+
+      &-address {
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      &-dropdown {
+        position: relative;
+
+        &::after {
+          content: '';
+          background-image: url("../assets/icons/chevron.svg");
+          background-size: cover;
+          position: absolute;
+          display: inline-block;
+          height: 1em;
+          width: 1em;
+          right: 1em;
+          top: 50%;
+          vertical-align: middle;
+          transform: translateY(-50%) rotate(-90deg);
+        }
+      }
+    }
   }
 
   &_inner {
     display: inline;
     font-style: normal;
 
-    &-sidebar{
-      margin-bottom: 2em;
-    }
 
     @media screen and (max-width: $md) {
       display: flex;
@@ -94,7 +135,7 @@
     text-decoration: none;
     padding: .5em;
 
-    &-dropdown{
+    &-dropdown {
       &::after {
         content: '';
         background-image: url("../assets/icons/chevron.svg");
@@ -104,21 +145,6 @@
         height: 1em;
         width: 1em;
         vertical-align: middle;
-      }
-
-      &-sidebar::after{
-        content: '';
-        background-image: url("../assets/icons/chevron.svg");
-
-        background-size: cover;
-        position: absolute;
-        display: inline-block;
-        height: 1em;
-        width: 1em;
-        right: 0;
-        top: 50%;
-        vertical-align: middle;
-        transform: translateY(-50%) rotate(-90deg);
       }
     }
 
@@ -158,21 +184,6 @@
 
     &-mail {
       color: #005DB4;
-    }
-
-    &-sidebar{
-      font-size: 16px;
-      width: auto;
-      position: relative;
-      padding: 0.5em 0;
-      &:not(:first-child){
-        border-top: 1px solid #E7E7E7;
-      }
-
-      &-address{
-        font-weight: 500;
-        font-size: 16px;
-      }
     }
   }
 }
@@ -253,7 +264,9 @@
   cursor: pointer;
 
   &.open {
+    position: fixed;
     z-index: 10;
+    height: 3em;
   }
 
   & > img {
@@ -317,9 +330,10 @@
   }
 
   &.open {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
+    height: 3em;
     background-color: #fff;
     margin: 0 1em;
     z-index: 10;

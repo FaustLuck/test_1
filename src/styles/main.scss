@@ -263,14 +263,28 @@
     }
   }
 
-  &-close{
-    position: absolute;
+  &-close {
+    position: fixed;
     z-index: 10;
-    border:none;
     background-color: #fff;
+    border: 1px solid #fff;
 
-    &.hide{
+    &.hide {
       display: none;
+    }
+  }
+
+  &-order {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+
+    & > span {
+      margin-left: 1em;
+      white-space: nowrap;
     }
   }
 }
@@ -283,7 +297,7 @@
   left: 0;
   z-index: -1;
 
-  &.open{
+  &.open {
     background: #000000;
     opacity: 0.7;
     z-index: 5;

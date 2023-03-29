@@ -30,9 +30,12 @@ function openCatalog() {
   if (!window.matchMedia("(max-width: 768px)").matches) return;
   insertPlug(catalogButton);
   toggleOverlay([catalogButton, catalogMenu]);
+  const {bottom: bottomCatalog, left: leftCatalog} = catalogButton.getBoundingClientRect();
   const {left, top} = menuButton.getBoundingClientRect();
   closeButton.style.left = left + "px";
   closeButton.style.top = top + "px";
+  catalogMenu.style.top = bottomCatalog + 30 + "px";
+  catalogMenu.style.left = leftCatalog + "px";
   catalogButton.removeEventListener("pointerdown", openCatalog);
   closeButton.addEventListener("pointerdown", closeCatalog);
   catalogButton.addEventListener("pointerdown", closeCatalog);
